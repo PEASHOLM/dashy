@@ -35,8 +35,14 @@ sections:
       - bitcoin
       - ethereum
       - monero
-      - solana
-      - polkadot
+  - type: stock-price-history
+    options:
+      asset: AAPL
+      currency: GBP
+  - type: stock-price-history
+    options:
+      asset: TSLA
+      currency: GBP
 
 - name: Productivity
   icon: far fa-briefcase
