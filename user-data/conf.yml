@@ -35,14 +35,15 @@ sections:
       - bitcoin
       - ethereum
       - monero
-  - type: stock-price-history
+  - type: api-response
     options:
-      asset: AAPL
-      currency: GBP
-  - type: stock-price-history
-    options:
-      asset: TSLA
-      currency: GBP
+      url: https://finnhub.io
+      method: GET
+      headers:
+        X-Finnhub-Token: d6704f9r01qmckkbjhngd6704f9r01qmckkbjho0
+      field: $.c
+      label: Taylor Wimpey
+      suffix: " GBX"
 
 - name: Productivity
   icon: far fa-briefcase
