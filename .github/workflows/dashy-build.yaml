@@ -38,8 +38,8 @@ jobs:
           SITE_URL: ${{ inputs.site-url }}
         run: |
           npm install --global yarn
-          yarn install --frozen-lockfile
-          yarn build
+          yarn install --ignore-engines
+          yarn build --ignore-engines
 
 # Please do not touch the following action
       - name: Store deployment content
