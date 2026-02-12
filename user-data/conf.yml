@@ -12,6 +12,7 @@ sections:
       - type: rss
         options:
           url: https://www.ft.com
+          useProxy: true
           limit: 6
 
   - name: 📈 My Watchlist
@@ -21,10 +22,12 @@ sections:
         options:
           symbol: TW.L
           name: Taylor Wimpey
+          useProxy: true
       - type: stock-price
         options:
           symbol: MSFT
           name: Microsoft
+          useProxy: true
       - type: exchange-rate
         options:
           from: GBP
@@ -44,4 +47,5 @@ sections:
       - type: rss
         options:
           url: https://news.google.com
+          useProxy: true
           limit: 5
