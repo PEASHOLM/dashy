@@ -1,3 +1,6 @@
+appConfig:
+  proxyUrl: https://cors-anywhere.herokuapp.com
+
 pageInfo:
   title: My Personal Dashboard
   description: News, Weather, and Stocks
