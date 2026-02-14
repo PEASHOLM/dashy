@@ -1,190 +1,322 @@
----
-# Page meta info, like heading, footer text and nav links
 pageInfo:
   title: Hello, Tom
   description: General browser startpage
   logo: https://i.ibb.co/71WyyzM/little-bot-3.png
-
-# Optional app settings and configuration
 appConfig:
   statusCheck: false
-  theme: charry-blossom
+  theme: material-dark
   fontAwesomeKey: c94dc2b452
   customCss: '.clock p.time { font-size: 3rem !important; }'
   layout: vertical
   iconSize: small
-
-# Main content - An array of sections, each containing an array of items
 sections:
-- name: Today
-  icon: far fa-smile-beam
-  displayData:
-    collapsed: false
-    hideForGuests: false
-  widgets:
-  - type: clock
-  - type: weather
-    options:
-      apiKey: efdbade728b37086877a5e83442004db
-      city: London
-  - type: crypto-watch-list
-    options:
-      currency: GBP
-      sortBy: marketCap
-      assets:
-      - bitcoin
-      - ethereum
-      - monero
-  - type: api-response
-    options:
-      url: https://finnhub.io
-      method: GET
-      headers:
-        X-Finnhub-Token: d6704f9r01qmckkbjhngd6704f9r01qmckkbjho0
-      field: $.c
-      label: Taylor Wimpey
-      suffix: " GBX"
-
-- name: Productivity
-  icon: far fa-briefcase
-  items:
-  - title: ProtonMail
-    icon: favicon
-    url: https://mail.protonmail.com/
-    description: Primary email account
-    tags: [hosted, personal, email, mail]
-    hotkey: 1
-  - title: CTemplar
-    icon: favicon
-    url: https://mail.ctemplar.com/
-    description: Secondary email account
-    tags: [hosted, personal, email, mail]
-    hotkey: 2
-  - title: AnonAddy
-    icon: favicon
-    url: https://app.anonaddy.com/
-    description: Mail alias forwarder
-    tags: [hosted, personal, forwarder, aliases, email]
-    hotkey: 3
-    statusCheckAcceptCodes: '401'
-  - title: LessPass
-    icon: favicon
-    url: https://lesspass.com/
-    description: Deterministic password generator
-    tags: [hosted, personal, password, generate, deterministic]
-    hotkey: 4
-  - title: EteSync
-    icon: favicon
-    url: https://pim.etesync.com/
-    description: Calendar + Contacts, CalDAV sync
-    tags: [hosted, personal, caldav, calendar, contacts, tasks, planning]
-    hotkey: 5
-  - title: Tasks
-    icon: https://i.ibb.co/v4jznK0/todo-list.png
-    url: https://pim.etesync.com/pim/tasks
-    description: Todo list and tasks from CalDAV
-    tags: [hosted, personal, caldav, tasks, planning]
-    hotkey: 6
-  - title: Tresorit
-    icon: favicon
-    url: https://web.tresorit.com/
-    description: Off-site encrypted file sync + backup
-    tags: [hosted, personal, files, backup, sync, storage ]
-    hotkey: 7
-  - title: StandardNotes
-    icon: favicon
-    url: https://app.standardnotes.com/
-    description: Notes, and my second brain
-    tags: [hosted, personal, notes ]
-    hotkey: 8
-  - title: 1Password
-    icon: favicon
-    url: https://my.1password.com/
-    description: Password Manager
-    tags: [hosted, personal, passwords ]
-    hotkey: 9
-
-- name: Dev & Cloud
-  icon: far fa-code
-  items:
-  - title: GitHub
-    icon: favicon
-    url: https://github.com/
-  - title: StackOverflow
-    icon: favicon
-    url: http://stackoverflow.com/
-  - title: CloudFlare
-    icon: favicon
-    url: https://dash.cloudflare.com/
-    statusCheckAcceptCodes: '403'
-  - title: DigitalOcean
-    icon: favicon
-    url: https://cloud.digitalocean.com/
-  - title: Netlify
-    icon: favicon
-    url: https://app.netlify.com/
-  - title: CodeSandbox
-    icon: favicon
-    url: https://codesandbox.io/dashboard
-  - title: Hack the Box
-    icon: favicon
-    url: https://www.hackthebox.com/home
-  - title: Documentation
-    subItems:
-    - title: JavaScript
-      url: https://developer.mozilla.org
-      icon: si-javascript
-      color: '#F7DF1E'
-    - title: TypeScript
-      url: https://www.typescriptlang.org/docs
-      icon: si-typescript
-      color: '#3178C6'
-    - title: Svelt
-      url: https://svelte.dev/docs
-      icon: si-svelte
-      color: '#FF3E00'
-    - title: Go
-      url: https://go.dev/doc
-      icon: si-go
-      color: '#00ADD8'
-    - title: Rust
-      url: https://doc.rust-lang.org/reference
-      icon: si-rust
-      color: '#000000'
-    - title: Docker
-      url: https://docs.docker.com/
-      icon: si-docker
-      color: '#2496ED'
-
-- name: Social & News
-  icon: far fa-thumbs-up
-  items:
-  - title: Discord
-    icon: si-discord
-    url: https://discord.com/channels/
-  - title: Mastodon
-    icon: si-mastodon
-    url: https://mastodon.social/
-  - title: Reddit
-    icon: si-reddit
-    url: https://www.reddit.com/
-  - title: HackerNews
-    icon: si-ycombinator
-    url: https://news.ycombinator.com/
-  - title: Twitter
-    icon: si-twitter
-    url: https://twitter.com/
-  - title: YouTube
-    icon: si-youtube
-    url: https://youtube.com/
-  - title: Instagram
-    icon: si-instagram
-    url: https://www.instagram.com/
-  - title: News
-    icon: si-bbc
-    url: https://bbc.co.uk/news
-  - title: Crypto Prices
-    icon: fab fa-bitcoin
-    url: https://www.livecoinwatch.com/
-    description: Real-time crypto prices and read-only portfolio
-    provider: Live Coin Watch
+  - name: Today
+    icon: far fa-smile-beam
+    displayData:
+      collapsed: false
+      hideForGuests: false
+    widgets:
+      - type: clock
+        id: 0_513_clock
+      - type: weather
+        options:
+          apiKey: efdbade728b37086877a5e83442004db
+          city: London
+        id: 1_513_weather
+      - type: crypto-watch-list
+        options:
+          currency: GBP
+          sortBy: marketCap
+          assets:
+            - bitcoin
+            - ethereum
+            - monero
+        id: 2_513_cryptowatchlist
+      - type: api-response
+        options:
+          url: https://finnhub.io
+          method: GET
+          headers:
+            X-Finnhub-Token: d6704f9r01qmckkbjhngd6704f9r01qmckkbjho0
+          field: $.c
+          label: Taylor Wimpey
+          suffix: ' GBX'
+        id: 3_513_apiresponse
+    filteredItems: []
+  - name: Most Visited
+    icon: far fa-briefcase
+    items:
+      - &ref_0
+        title: FT
+        description: Primary email account
+        icon: Favicon
+        url: https://ft.com/
+        target: newtab
+        hotkey: 1
+        tags:
+          - hosted
+          - personal
+          - email
+          - mail
+        id: 0_1179_protonmail
+      - &ref_1
+        title: Google finance
+        icon: favicon
+        url: https://www.google.com/finance/?hl=en/
+        description: Secondary email account
+        tags:
+          - hosted
+          - personal
+          - email
+          - mail
+        hotkey: 2
+        id: 1_1179_ctemplar
+      - &ref_2
+        title: AnonAddy
+        icon: favicon
+        url: https://app.anonaddy.com/
+        description: Mail alias forwarder
+        tags:
+          - hosted
+          - personal
+          - forwarder
+          - aliases
+          - email
+        hotkey: 3
+        statusCheckAcceptCodes: '401'
+        id: 2_1179_anonaddy
+      - &ref_3
+        title: LessPass
+        icon: favicon
+        url: https://lesspass.com/
+        description: Deterministic password generator
+        tags:
+          - hosted
+          - personal
+          - password
+          - generate
+          - deterministic
+        hotkey: 4
+        id: 3_1179_lesspass
+      - &ref_4
+        title: EteSync
+        icon: favicon
+        url: https://pim.etesync.com/
+        description: Calendar + Contacts, CalDAV sync
+        tags:
+          - hosted
+          - personal
+          - caldav
+          - calendar
+          - contacts
+          - tasks
+          - planning
+        hotkey: 5
+        id: 4_1179_etesync
+      - &ref_5
+        title: Tasks
+        icon: https://i.ibb.co/v4jznK0/todo-list.png
+        url: https://pim.etesync.com/pim/tasks
+        description: Todo list and tasks from CalDAV
+        tags:
+          - hosted
+          - personal
+          - caldav
+          - tasks
+          - planning
+        hotkey: 6
+        id: 5_1179_tasks
+      - &ref_6
+        title: Tresorit
+        icon: favicon
+        url: https://web.tresorit.com/
+        description: Off-site encrypted file sync + backup
+        tags:
+          - hosted
+          - personal
+          - files
+          - backup
+          - sync
+          - storage
+        hotkey: 7
+        id: 6_1179_tresorit
+      - &ref_7
+        title: StandardNotes
+        icon: favicon
+        url: https://app.standardnotes.com/
+        description: Notes, and my second brain
+        tags:
+          - hosted
+          - personal
+          - notes
+        hotkey: 8
+        id: 7_1179_standardnotes
+      - &ref_8
+        title: 1Password
+        icon: favicon
+        url: https://my.1password.com/
+        description: Password Manager
+        tags:
+          - hosted
+          - personal
+          - passwords
+        hotkey: 9
+        id: 8_1179_password
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    filteredItems:
+      - *ref_0
+      - *ref_1
+      - *ref_2
+      - *ref_3
+      - *ref_4
+      - *ref_5
+      - *ref_6
+      - *ref_7
+      - *ref_8
+  - name: Planning
+    icon: far fa-code
+    items:
+      - &ref_9
+        title: GitHub
+        icon: favicon
+        url: https://github.com/
+        id: 0_892_github
+      - &ref_10
+        title: StackOverflow
+        icon: favicon
+        url: http://stackoverflow.com/
+        id: 1_892_stackoverflow
+      - &ref_11
+        title: CloudFlare
+        icon: favicon
+        url: https://dash.cloudflare.com/
+        statusCheckAcceptCodes: '403'
+        id: 2_892_cloudflare
+      - &ref_12
+        title: DigitalOcean
+        icon: favicon
+        url: https://cloud.digitalocean.com/
+        id: 3_892_digitalocean
+      - &ref_13
+        title: Netlify
+        icon: favicon
+        url: https://app.netlify.com/
+        id: 4_892_netlify
+      - &ref_14
+        title: CodeSandbox
+        icon: favicon
+        url: https://codesandbox.io/dashboard
+        id: 5_892_codesandbox
+      - &ref_15
+        title: Hack the Box
+        icon: favicon
+        url: https://www.hackthebox.com/home
+        id: 6_892_hackthebox
+      - &ref_16
+        title: Documentation
+        subItems:
+          - title: JavaScript
+            url: https://developer.mozilla.org
+            icon: si-javascript
+            color: '#F7DF1E'
+          - title: TypeScript
+            url: https://www.typescriptlang.org/docs
+            icon: si-typescript
+            color: '#3178C6'
+          - title: Svelt
+            url: https://svelte.dev/docs
+            icon: si-svelte
+            color: '#FF3E00'
+          - title: Go
+            url: https://go.dev/doc
+            icon: si-go
+            color: '#00ADD8'
+          - title: Rust
+            url: https://doc.rust-lang.org/reference
+            icon: si-rust
+            color: '#000000'
+          - title: Docker
+            url: https://docs.docker.com/
+            icon: si-docker
+            color: '#2496ED'
+        id: 7_892_documentation
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    filteredItems:
+      - *ref_9
+      - *ref_10
+      - *ref_11
+      - *ref_12
+      - *ref_13
+      - *ref_14
+      - *ref_15
+      - *ref_16
+  - name: Social & News
+    icon: far fa-thumbs-up
+    items:
+      - &ref_17
+        title: Discord
+        icon: si-discord
+        url: https://discord.com/channels/
+        id: 0_1118_discord
+      - &ref_18
+        title: Mastodon
+        icon: si-mastodon
+        url: https://mastodon.social/
+        id: 1_1118_mastodon
+      - &ref_19
+        title: Reddit
+        icon: si-reddit
+        url: https://www.reddit.com/
+        id: 2_1118_reddit
+      - &ref_20
+        title: HackerNews
+        icon: si-ycombinator
+        url: https://news.ycombinator.com/
+        id: 3_1118_hackernews
+      - &ref_21
+        title: Twitter
+        icon: si-twitter
+        url: https://twitter.com/
+        id: 4_1118_twitter
+      - &ref_22
+        title: YouTube
+        icon: si-youtube
+        url: https://youtube.com/
+        id: 5_1118_youtube
+      - &ref_23
+        title: Instagram
+        icon: si-instagram
+        url: https://www.instagram.com/
+        id: 6_1118_instagram
+      - &ref_24
+        title: News
+        icon: si-bbc
+        url: https://bbc.co.uk/news
+        id: 7_1118_news
+      - &ref_25
+        title: Crypto Prices
+        icon: fab fa-bitcoin
+        url: https://www.livecoinwatch.com/
+        description: Real-time crypto prices and read-only portfolio
+        provider: Live Coin Watch
+        id: 8_1118_cryptoprices
+    filteredItems:
+      - *ref_17
+      - *ref_18
+      - *ref_19
+      - *ref_20
+      - *ref_21
+      - *ref_22
+      - *ref_23
+      - *ref_24
+      - *ref_25
